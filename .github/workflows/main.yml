@@ -1,0 +1,53 @@
+name: Pull Request CI
+on: pull_request
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout
+            uses: actions/checkout@v2
+        -   name: Setup Node JS
+            uses: actions/setup-node@master
+            with:
+                node-version: 12.x
+        -   name: Restore cached node_modules
+            uses: actions/cache@v2
+            with:
+                path: node_modules
+                key: cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                restore-keys: |
+                    cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                    cached-pr-prod-deps-
+                    cached-pr-prod-
+        -   name: Install dependencies
+            run: npm install --no-save --no-audit
+            if: success()
+        -   name: Run lint
+            run: npm run lint --silent -- --format=json
+            if: success()
+        -   name: Build project
+            run: npm run build:prod -- --no-progress
+    tests:
+        runs-on: ubuntu-latest
+        steps:
+        -   name: Checkout
+            uses: actions/checkout@v2
+        -   name: Setup Node JS
+            uses: actions/setup-node@master
+            with:
+                node-version: 12.x
+        -   name: Restore cached node_modules
+            uses: actions/cache@v2
+            with:
+                path: node_modules
+                key: cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                restore-keys: |
+                    cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                    cached-pr-prod-deps-
+                    cached-pr-prod-
+        -   name: Install dependencies
+            run: npm install --no-save --no-audit
+            if: success()
+        -   name: Run unit tests
+            run: npm test
