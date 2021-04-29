@@ -12,27 +12,33 @@ jobs:
         steps:
         -   name: Checkout
             uses: actions/checkout@v2
+
         -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@master
+            uses: actions/setup-node@v2
             with:
                 node-version: ${{ matrix.node-version }}
+
         -   name: Restore cached node_modules
             uses: actions/cache@v2
             with:
                 path: node_modules
-                key: cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                key: ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
                 restore-keys: |
-                    cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
-                    cached-pr-prod-deps-
-                    cached-pr-prod-
+                    ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                    ${{ runner.os }}-deps-
+                    ${{ runner.os }}-
+
         -   name: Install dependencies
-            run: npm install --no-save --no-audit
+            run: npm install --no-save
             if: success()
+
         -   name: Run lint
-            run: npm run lint --silent -- --format=json
+            run: npm run lint -- --format=json
             if: success()
+
         -   name: Build project
             run: npm run build:prod -- --no-progress
+
     tests:
         runs-on: ubuntu-latest
 
@@ -43,21 +49,25 @@ jobs:
         steps:
         -   name: Checkout
             uses: actions/checkout@v2
+
         -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@master
+            uses: actions/setup-node@v2
             with:
                 node-version: ${{ matrix.node-version }}
+
         -   name: Restore cached node_modules
             uses: actions/cache@v2
             with:
                 path: node_modules
-                key: cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
+                key: ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
                 restore-keys: |
-                    cached-pr-prod-deps-${{ hashFiles('package-lock.json') }}
-                    cached-pr-prod-deps-
-                    cached-pr-prod-
+                    ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                    ${{ runner.os }}-deps-
+                    ${{ runner.os }}-
+
         -   name: Install dependencies
             run: npm install --no-save --no-audit
             if: success()
+
         -   name: Run unit tests
             run: npm test
