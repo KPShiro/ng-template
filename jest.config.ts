@@ -5,7 +5,8 @@ export default {
     ],
     testPathIgnorePatterns: [
       '<rootDir>/node_modules/',
-      '<rootDir>/dist/'
+      '<rootDir>/dist/',
+      '<rootDir>/e2e/'
     ],
     globals: {
       'ts-jest': {
