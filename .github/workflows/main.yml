@@ -7,8 +7,7 @@ on:
         branches: [main]
 
 jobs:
-    build:
-        name: Build
+    test:
         runs-on: ubuntu-latest
 
         strategy:
@@ -17,6 +16,11 @@ jobs:
 
         steps:
         -   uses: actions/checkout@v2
+
+        -   name: Setup Node ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: ${{ matrix.node-version }}
 
         -   name: Restore cached node_modules
             uses: actions/cache@v2
@@ -28,30 +32,18 @@ jobs:
                     ${{ runner.os }}-deps-
                     ${{ runner.os }}-
 
-        -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@v2
-            with:
-                node-version: ${{ matrix.node-version }}
-
-        -   name: Check npm version
-            run: npm -v
-
-        -   name: Check node version
-            run: node --version
-
         -   name: Install dependencies
-            run: npm i
+            run: npm install
             if: success()
 
         -   name: Run lint
             run: npm run lint
             if: success()
 
-        -   name: Build project
-            run: npm run build:ci
+        -   name: Run unit tests
+            run: npm run test:ci
 
-    tests:
-        name: Test
+    build:
         runs-on: ubuntu-latest
 
         strategy:
@@ -61,6 +53,11 @@ jobs:
         steps:
         -   name: Checkout
             uses: actions/checkout@v2
+
+        -   name: Setup Node ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: ${{ matrix.node-version }}
 
         -   name: Restore cached node_modules
             uses: actions/cache@v2
@@ -72,14 +69,9 @@ jobs:
                     ${{ runner.os }}-deps-
                     ${{ runner.os }}-
 
-        -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@v2
-            with:
-                node-version: ${{ matrix.node-version }}
-
         -   name: Install dependencies
-            run: npm i
+            run: npm install
             if: success()
 
-        -   name: Run unit tests
-            run: npm test:ci
+        -   name: Build project
+            run: npm run build:ci
