@@ -7,11 +7,20 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [14]
+                node-version: ['14']
 
         steps:
-        -   name: Checkout
-            uses: actions/checkout@v2
+        -   uses: actions/checkout@v2
+
+        -   name: Restore cached node_modules
+            uses: actions/cache@v2
+            with:
+                path: 'node_modules'
+                key: ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                restore-keys: |
+                    ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                    ${{ runner.os }}-deps-
+                    ${{ runner.os }}-
 
         -   name: Setup Node ${{ matrix.node-version }}
             uses: actions/setup-node@v2
@@ -34,11 +43,21 @@ jobs:
 
         strategy:
             matrix:
-                node-version: [14]
+                node-version: ['14']
 
         steps:
         -   name: Checkout
             uses: actions/checkout@v2
+
+        -   name: Restore cached node_modules
+            uses: actions/cache@v2
+            with:
+                path: node_modules
+                key: ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                restore-keys: |
+                    ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
+                    ${{ runner.os }}-deps-
+                    ${{ runner.os }}-
 
         -   name: Setup Node ${{ matrix.node-version }}
             uses: actions/setup-node@v2
