@@ -33,6 +33,12 @@ jobs:
             with:
                 node-version: ${{ matrix.node-version }}
 
+        -   name: Check npm version
+            run: npm -v
+
+        -   name: Check node version
+            run: node --version
+
         -   name: Install dependencies
             run: npm i
             if: success()
