@@ -13,11 +13,6 @@ jobs:
         -   name: Checkout
             uses: actions/checkout@v2
 
-        -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@v2
-            with:
-                node-version: ${{ matrix.node-version }}
-
         -   name: Restore cached node_modules
             uses: actions/cache@v2
             with:
@@ -27,6 +22,12 @@ jobs:
                     ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
                     ${{ runner.os }}-deps-
                     ${{ runner.os }}-
+
+        -   name: Setup Node ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: ${{ matrix.node-version }}
+            if: success()
 
         -   name: Install dependencies
             run: npm install
@@ -50,11 +51,6 @@ jobs:
         -   name: Checkout
             uses: actions/checkout@v2
 
-        -   name: Setup Node ${{ matrix.node-version }}
-            uses: actions/setup-node@v2
-            with:
-                node-version: ${{ matrix.node-version }}
-
         -   name: Restore cached node_modules
             uses: actions/cache@v2
             with:
@@ -64,6 +60,12 @@ jobs:
                     ${{ runner.os }}-deps-${{ hashFiles('package-lock.json') }}
                     ${{ runner.os }}-deps-
                     ${{ runner.os }}-
+
+        -   name: Setup Node ${{ matrix.node-version }}
+            uses: actions/setup-node@v2
+            with:
+                node-version: ${{ matrix.node-version }}
+            if: success()
 
         -   name: Install dependencies
             run: npm install
