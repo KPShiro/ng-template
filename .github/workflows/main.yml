@@ -1,9 +1,14 @@
 name: Pull Request CI
 
-on: pull_request
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
 
 jobs:
     build:
+        name: Build
         runs-on: ubuntu-latest
 
         strategy:
@@ -29,7 +34,7 @@ jobs:
                 node-version: ${{ matrix.node-version }}
 
         -   name: Install dependencies
-            run: npm install
+            run: npm i
             if: success()
 
         -   name: Run lint
@@ -37,9 +42,10 @@ jobs:
             if: success()
 
         -   name: Build project
-            run: npm run build:prod
+            run: npm run build:ci
 
     tests:
+        name: Test
         runs-on: ubuntu-latest
 
         strategy:
@@ -66,8 +72,8 @@ jobs:
                 node-version: ${{ matrix.node-version }}
 
         -   name: Install dependencies
-            run: npm install
+            run: npm i
             if: success()
 
         -   name: Run unit tests
-            run: npm test
+            run: npm test:ci

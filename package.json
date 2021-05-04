@@ -5,8 +5,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --prod",
+    "build:ci": "ng build --prod --sourceMap=false",
     "test": "jest",
     "test:coverage": "jest --coverage",
+    "test:ci": "jest --coverage",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
