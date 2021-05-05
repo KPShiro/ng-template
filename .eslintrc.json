@@ -5,6 +5,7 @@
         "node": true,
         "es6": true
     },
+    "plugins": ["html"],
     "overrides": [
         {
             "files": [
