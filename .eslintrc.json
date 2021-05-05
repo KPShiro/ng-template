@@ -1,8 +1,11 @@
 {
     "root": true,
-    "ignorePatterns": [
-        "projects/**/*"
-    ],
+    "env": {
+        "browser": false,
+        "node": true,
+        "es6": true
+    },
+    "plugins": ["html"],
     "overrides": [
         {
             "files": [
@@ -48,6 +51,15 @@
             ],
             "extends": [
                 "plugin:@angular-eslint/template/recommended"
+            ],
+            "rules": {}
+        },
+        {
+            "files": [
+                "*.json"
+            ],
+            "extends": [
+                "plugin:json/recommended-with-comments"
             ],
             "rules": {}
         }
