@@ -1,1 +1,1 @@
-export const getWelcomeMessage = () => cy.get('.toolbar > span');
+export const getWelcomeMessage = () => cy.get('h1.app-title');

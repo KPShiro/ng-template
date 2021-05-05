@@ -4,6 +4,6 @@ describe('ng-template', () => {
     beforeEach(() => cy.visit('/'));
 
     it('should display welcome message', () => {
-        getWelcomeMessage().contains('Welcome');
+        getWelcomeMessage().contains('Thank you for using ng-template!');
     });
 });
