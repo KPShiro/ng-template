@@ -1,7 +1,7 @@
 export default {
     preset: 'jest-preset-angular',
     setupFilesAfterEnv: [
-        '<rootDir>/setupJest.ts'
+        '<rootDir>/jest.setup.ts'
     ],
     testPathIgnorePatterns: [
         '<rootDir>/node_modules/',
@@ -13,5 +13,9 @@ export default {
             tsconfig: '<rootDir>/tsconfig.spec.json',
             stringifyContentPathRegex: '\\.html$'
         }
+    },
+    moduleNameMapper: {
+        "@app(.*)": "<rootDir>/src/app/$1",
+        "@assets(.*)": "<rootDir>/src/assets/$1",
     }
 };
