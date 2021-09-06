@@ -1,5 +1,5 @@
-import { APP_INITIALIZER, Injectable, Provider } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class AppInitializer {

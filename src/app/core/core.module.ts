@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppInitializer, AppInitializerProvider } from './app-initializer';
+import { AppInitializer, AppInitializerProvider } from './domain/app-initializer/app-initializer';
 
 @NgModule({
     declarations: [],
