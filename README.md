@@ -1,6 +1,6 @@
 # About the project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
+Architecture idea used in this project: https://georgebyte.com/scalable-angular-app-architecture/
 
 ## Development server
 
