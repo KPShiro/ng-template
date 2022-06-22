@@ -5,7 +5,9 @@
         "node": true,
         "es6": true
     },
-    "plugins": ["html"],
+    "plugins": [
+        "html"
+    ],
     "overrides": [
         {
             "files": [
@@ -38,10 +40,6 @@
                         "style": "camelCase",
                         "type": "attribute"
                     }
-                ],
-                "indent": [
-                    "error",
-                    4
                 ]
             }
         },
