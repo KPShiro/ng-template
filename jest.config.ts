@@ -8,8 +8,11 @@ export default {
         '<rootDir>/dist/',
         '<rootDir>/e2e/'
     ],
-    transform: {
-        '^.+\\.(ts|js|html)$': 'jest-preset-angular',
+    globals: {
+        'ts-jest': {
+            tsconfig: '<rootDir>/tsconfig.spec.json',
+            stringifyContentPathRegex: '\\.html$'
+        }
     },
     moduleNameMapper: {
         "@app(.*)": "<rootDir>/src/app/$1",
