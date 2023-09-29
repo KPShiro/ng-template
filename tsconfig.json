@@ -2,33 +2,33 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-      "baseUrl": "./",
-      "outDir": "./dist/out-tsc",
-      "forceConsistentCasingInFileNames": true,
-      "strict": true,
-      "noImplicitReturns": true,
-      "noFallthroughCasesInSwitch": true,
-      "sourceMap": true,
-      "declaration": false,
-      "downlevelIteration": true,
-      "experimentalDecorators": true,
-      "moduleResolution": "node",
-      "importHelpers": true,
-      "target": "ES2022",
-      "module": "es2020",
-      "lib": [
-        "es2018",
-        "dom"
-      ],
-      "paths": {
-        "@app/*": [
-          "src/app/*"
+        "baseUrl": "./",
+        "outDir": "./dist/out-tsc",
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "target": "ES2022",
+        "module": "es2020",
+        "lib": [
+            "es2018",
+            "dom"
         ],
-        "@assets/*": [
-          "src/assets/*"
-        ]
-      },
-      "useDefineForClassFields": false
+        "paths": {
+            "@app/*": [
+                "src/app/*"
+            ],
+            "@assets/*": [
+                "src/assets/*"
+            ]
+        },
+        "useDefineForClassFields": false
     },
     "angularCompilerOptions": {
         "enableI18nLegacyMessageIdFormat": false,
