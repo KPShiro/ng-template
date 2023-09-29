@@ -7,16 +7,18 @@
         "url": "https://github.com/KPShiro"
     },
     "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
-        "build": "ng build",
-        "build:prod": "ng build --configuration production",
-        "build:ci": "ng build --configuration production --source-map=false",
-        "test": "jest",
-        "test:coverage": "jest --coverage",
-        "test:ci": "jest --coverage",
-        "lint": "ng lint",
-        "e2e": "ng e2e"
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "build:prod": "ng build --configuration production",
+      "build:ci": "ng build --configuration production --source-map=false",
+      "test": "jest",
+      "test:coverage": "jest --coverage",
+      "test:ci": "jest --coverage",
+      "lint": "ng lint",
+      "e2e": "ng e2e",
+      "cypress:open": "cypress open",
+      "cypress:run": "cypress run"
     },
     "private": true,
     "dependencies": {
@@ -42,6 +44,7 @@
         "@angular-eslint/template-parser": "16.2.0",
         "@angular/cli": "^16.2.4",
         "@angular/compiler-cli": "~16.2.7",
+        "@cypress/schematic": "^2.5.1",
         "@nrwl/cypress": "^16.9.1",
         "@nrwl/workspace": "^16.9.1",
         "@types/jest": "^29.5.5",

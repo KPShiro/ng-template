@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { CoreModule } from '@app/core/core.module';
-import { AppInitializerProvider } from '@app/core/providers';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+
+import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { routes } from './app.routes';
 
 @NgModule({
     declarations: [
@@ -11,13 +14,16 @@ import { AppInitializerProvider } from '@app/core/providers';
     ],
     imports: [
         BrowserModule,
-        CoreModule,
+        BrowserAnimationsModule,
+        // Add angular modules here...
 
-        //App routing (should be imported as the last one)
-        AppRoutingModule,
-    ],
-    providers: [
-        AppInitializerProvider,
+        CoreModule.forRoot(),
+        SharedModule,
+        // Add your moules here...
+
+        // Add 3rd party modules here...
+
+        RouterModule.forRoot(routes),
     ],
     bootstrap: [AppComponent]
 })
