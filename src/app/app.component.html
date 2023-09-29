@@ -3,13 +3,31 @@
 <!-- DELETE EVERYTHING BELOW THIS LINE -->
 
 <style>
-    :host {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        --color-primary: #FFC100;
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+    ::ng-deep :root {
+        --color-primary: #f43f5e;
+        --color-text-primary: #f9fafb;
+        --color-text-secondary: #9ca3af;
+        --color-background: #0a0a0a;
     }
 
-    h1 {
-        font-weight: 300;
+    ::ng-deep body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        box-sizing: border-box;
+
+        font-family: 'Roboto', sans-serif;
+        font-size: 1rem;
+        line-height: 1.55;
+        color: var(--color-text-secondary);
+
+        background-color: var(--color-background);
     }
 
     .page-container {
@@ -17,38 +35,42 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
-        position: absolute;
-        z-index: 1;
-        inset: 0;
-
-        background-color: #000;
-        color: #fff;
+        gap: 3rem;
     }
 
-    .btn {
-        margin-top: 1.5rem;
-        padding: 1rem 1.25rem;
-        text-decoration: none;
-        font-weight: 500;
-        color: #000;
-        background-color: var(--color-primary);
-        user-select: none;
-        border-radius: 0.5rem;
-        transition: transform 0.1s ease-in-out;
+    .text--primary {
+        color: var(--color-primary);
     }
 
-    .btn:hover {
-        background-color: var(--color-primary);
-        color: #000;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        text-align: center;
+        max-width: 512px;
     }
 
-    .btn:active {
-        transform: scale(0.9);
+    .text__icon {
+        font-size: 5rem;
+        line-height: 1.3;
     }
 
+    .text__title {
+        font-size: 1.5rem;
+        line-height: 1.3;
+        color: var(--color-text-primary);
+    }
 </style>
+
 <div class="page-container">
-    <h1>Thank you for using ng-template!</h1>
-    <a class="btn" href="https://github.com/KPShiro" target="_blank">Visit my Github profile</a>
+    <div class="text">
+        <div class="text__icon">
+            😊
+        </div>
+        <div class="text__title">
+            Thank you for using <span class="text--primary">ng-template</span>
+        </div>
+        Angular version: {{ angularVersion }}
+    </div>
 </div>
