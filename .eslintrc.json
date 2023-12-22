@@ -7,12 +7,35 @@
     },
     "plugins": [
         "html",
+        "@angular-eslint",
+        "@angular-eslint/template",
         "prettier"
     ],
     "extends": [
-        "prettier",
+        "eslint:recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:prettier/recommended"
     ],
+    "rules": {
+        "prettier/prettier": "error",
+        "@angular-eslint/component-selector": [
+            "error",
+            {
+                "type": "element",
+                "prefix": "app",
+                "style": "kebab-case"
+            }
+        ],
+        "@angular-eslint/directive-selector": [
+            "error",
+            {
+                "type": "attribute",
+                "prefix": "app",
+                "style": "camelCase"
+            }
+        ]
+    },
     "overrides": [
         {
             "files": [
@@ -25,10 +48,6 @@
                 ],
                 "createDefaultProgram": true
             },
-            "extends": [
-                "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates"
-            ],
             "rules": {
                 "@angular-eslint/component-selector": [
                     "error",
@@ -66,8 +85,5 @@
             ],
             "rules": {}
         }
-    ],
-    "rules": {
-        "prettier/prettier": "error"
-    }
+    ]
 }
