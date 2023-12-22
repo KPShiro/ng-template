@@ -74,18 +74,18 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "ng-template:build"
+                      "buildTarget": "ng-template:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "ng-template:build:production"
+                          "buildTarget": "ng-template:build:production"
                         }
                     }
                 },
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "ng-template:build"
+                      "buildTarget": "ng-template:build"
                     }
                 },
                 "lint": {
@@ -152,6 +152,7 @@
             "@cypress/schematic",
             "@angular-eslint/schematics",
             "@schematics/angular"
-        ]
+        ],
+        "analytics": false
     }
 }

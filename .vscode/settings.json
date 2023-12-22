@@ -1,8 +1,20 @@
 {
-    "eslint.alwaysShowStatus": true,
-    "eslint.format.enable": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": false,
+    "editor.formatOnType": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     },
+    "files.autoSave": "onFocusChange",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
+    ],
+    "prettier.requireConfig": true,
+    "prettier.configPath": ".prettierrc",
+    "editor.rulers": [88]
 }

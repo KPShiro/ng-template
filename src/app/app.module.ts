@@ -9,9 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { routes } from './app.routes';
 
 @NgModule({
-    declarations: [
-        AppComponent
-    ],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -25,6 +23,6 @@ import { routes } from './app.routes';
 
         RouterModule.forRoot(routes),
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

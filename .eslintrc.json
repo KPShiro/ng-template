@@ -5,26 +5,21 @@
         "node": true,
         "es6": true
     },
-    "plugins": [
-        "html"
-    ],
+    "plugins": ["html", "prettier"],
     "overrides": [
         {
-            "files": [
-                "*.ts"
-            ],
+            "files": ["*.ts"],
             "parserOptions": {
-                "project": [
-                    "tsconfig.json",
-                    "e2e/tsconfig.json"
-                ],
+                "project": ["tsconfig.json", "e2e/tsconfig.json"],
                 "createDefaultProgram": true
             },
             "extends": [
                 "plugin:@angular-eslint/recommended",
-                "plugin:@angular-eslint/template/process-inline-templates"
+                "plugin:@angular-eslint/template/process-inline-templates",
+                "plugin:prettier/recommended"
             ],
             "rules": {
+                "prettier/prettier": "error",
                 "@angular-eslint/component-selector": [
                     "error",
                     {
@@ -44,21 +39,13 @@
             }
         },
         {
-            "files": [
-                "*.html"
-            ],
-            "extends": [
-                "plugin:@angular-eslint/template/recommended"
-            ],
+            "files": ["*.html"],
+            "extends": ["plugin:@angular-eslint/template/recommended"],
             "rules": {}
         },
         {
-            "files": [
-                "*.json"
-            ],
-            "extends": [
-                "plugin:json/recommended-with-comments"
-            ],
+            "files": ["*.json"],
+            "extends": ["plugin:json/recommended-with-comments"],
             "rules": {}
         }
     ]

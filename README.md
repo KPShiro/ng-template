@@ -1,7 +1,3 @@
-# About the project
-
-Architecture idea used in this project: https://georgebyte.com/scalable-angular-app-architecture/
-
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -22,3 +18,7 @@ Run `ng e2e` to execute the end-to-end tests via [Cypress](https://www.cypress.i
 ## Lint
 
 Use `npm run lint` to execute lint via [ESLint](https://eslint.org/).
+
+## Formatting
+
+Use `npm run format` to execute formatting via [Prettier](https://prettier.io/).

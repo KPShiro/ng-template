@@ -8,5 +8,5 @@ describe('AppComponent', () => {
         it('and return false', () => {
             expect(false).toBe(false);
         });
-    })
+    });
 });
