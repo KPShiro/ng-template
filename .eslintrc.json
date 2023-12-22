@@ -6,7 +6,12 @@
         "es6": true
     },
     "plugins": [
-        "html"
+        "html",
+        "prettier"
+    ],
+    "extends": [
+        "prettier",
+        "plugin:prettier/recommended"
     ],
     "overrides": [
         {
@@ -61,5 +66,8 @@
             ],
             "rules": {}
         }
-    ]
+    ],
+    "rules": {
+        "prettier/prettier": "error"
+    }
 }
