@@ -4,13 +4,10 @@ import { Component, Inject } from '@angular/core';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.scss']
+    styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
-    constructor(
-        @Inject(DOCUMENT) private readonly _document: Document,
-    ) { }
+    constructor(@Inject(DOCUMENT) private readonly _document: Document) {}
 
     get angularVersion(): string {
         const appRootElement = this._document.body.querySelector('app-root');
@@ -18,5 +15,4 @@ export class AppComponent {
 
         return version || 'Unknown';
     }
-
 }
